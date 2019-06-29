@@ -1,0 +1,27 @@
+extends layout.pug
+
+block styles
+  link(rel='stylesheet' type='text/css' href='/vendor/bootstrap/dist/css/bootstrap.min.css')
+  link(rel='stylesheet' type='text/css' href='/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css')
+  link(rel='stylesheet' type='text/css' href='/static/fonts/iconic/css/material-design-iconic-font.min.css')
+  link(rel='stylesheet' type='text/css' href='/static/stylesheets/util.css')
+  link(rel='stylesheet' type='text/css' href='/static/stylesheets/main.css')
+
+block content
+  .limiter
+    .container-login100(style="background-image: url('/static/images/bg-01.jpg');")
+      .wrap-login100
+        span.login100-form-logo
+          i.zmdi.zmdi-landscape
+        span.login100-form-title.p-b-34.p-t-27
+         | Hello #{name}
+        p(style={color: 'white'})
+         | ID: #{id}
+        p(style={color: 'white'})
+         | Email: #{email}
+        p(style={color: 'white'})
+         | Company: #{company}
+        .container-login100-form-btn
+          button.login100-form-btn
+           a(href='/logout')
+             | Logout

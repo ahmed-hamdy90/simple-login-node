@@ -1,0 +1,26 @@
+{
+  "name": "application",
+  "version": "1.0.0",
+  "description": "Idealratings Task(Simple Login Form)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "loadAppDependencies": "npm install && bower install"
+  },
+  "keywords": [],
+  "author": "Ahmed Hamdy <ahmedhamdy20@gmail.com>",
+  "license": "ISC",
+  "engines": {
+    "node": "12.4.0"
+  },
+  "dependencies": {
+    "express": "4.17.1",
+    "express-session": "1.16.2",
+    "http-errors": "1.7.3",
+    "pug": "2.0.4",
+    "serve-favicon": "2.5.0"
+  },
+  "devDependencies": {},
+  "private": true
+}

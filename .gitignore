@@ -1,0 +1,6 @@
+application/node_modules
+application/vendor
+.vagrant
+.idea
+*.log
+.git/

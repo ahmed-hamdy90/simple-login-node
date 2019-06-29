@@ -1,0 +1,50 @@
+extends layout.pug
+
+block styles
+  link(rel='stylesheet' type='text/css' href='/vendor/bootstrap/dist/css/bootstrap.min.css')
+  link(rel='stylesheet' type='text/css' href='/vendor/animate.css/animate.min.css')
+  link(rel='stylesheet' type='text/css' href='/vendor/css-hamburgers/dist/hamburgers.min.css')
+  link(rel='stylesheet' type='text/css' href='/vendor/animsition/src/css/animsition.css')
+  link(rel='stylesheet' type='text/css' href='/vendor/select2/dist/css/select2.min.css')
+  link(rel='stylesheet' type='text/css' href='/vendor/bootstrap-daterangepicker/daterangepicker.css')
+  link(rel='stylesheet' type='text/css' href='/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css')
+  link(rel='stylesheet' type='text/css' href='/static/fonts/iconic/css/material-design-iconic-font.min.css')
+  link(rel='stylesheet' type='text/css' href='/static/stylesheets/util.css')
+  link(rel='stylesheet' type='text/css' href='/static/stylesheets/main.css')
+
+block content
+  .limiter
+    .container-login100(style="background-image: url('/static/images/bg-01.jpg');")
+      .wrap-login100
+        form.login100-form.validate-form(method='POST' action='/login')
+          span.login100-form-logo
+            i.zmdi.zmdi-landscape
+          span.login100-form-title.p-b-34.p-t-27
+            | Log in
+          if error
+            span.danger
+             | #{error}
+          .wrap-input100.validate-input(data-validate='Enter username')
+            if username
+              input.input100(type='email' name='username' value=username)
+            else
+              input.input100(type='email' name='username' placeholder='Username')
+            span.focus-input100(data-placeholder='')
+          .wrap-input100.validate-input(data-validate='Enter password')
+            input.input100(type='password' name='pass' placeholder='Password')
+            span.focus-input100(data-placeholder='')
+          .container-login100-form-btn
+            button.login100-form-btn
+              | Login
+  #dropDownSelect1
+
+block scripts
+  script(src='/vendor/jquery/dist/jquery.min.js')
+  script(src='/vendor/animsition/dist/js/animsition.min.js')
+  script(src='/vendor/popper.js/dist/popper.min.js')
+  script(src='/vendor/bootstrap/dist/js/bootstrap.min.js')
+  script(src='/vendor/select2/dist/js/select2.min.js')
+  script(src='/vendor/moment/min/moment.min.js')
+  script(src='/vendor/bootstrap-daterangepicker/daterangepicker.js')
+  script(src='/static/javascripts/countdowntime/countdowntime.js')
+  script(src='/static/javascripts/login.js')
