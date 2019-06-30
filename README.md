@@ -8,6 +8,8 @@ To access application's source code under `application` folder
 
 Login example's technologies stack: `NodeJS`, `ExpressJS`, `Pug(Template Engine)`, `NPM`, `Bower`.
 
+Login example apply design patterns: `Service Oriented Architecture`, `Adapter` plus Hydrate data into Objects
+
 ##### To Run Example:
 
 - load vagrant box with next command
