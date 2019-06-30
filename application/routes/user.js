@@ -3,8 +3,8 @@
 
   // load modules
   const express = require('express');
-  const path = require('path');
-  const fileStream = require('fs');
+
+  const userService = require('../services/userService');
 
   // initilaize express's router instance
   const router = express.Router();
@@ -16,10 +16,19 @@
       return res.redirect('/');
     }
     if (userId) {
-      searchForUser(
+      let userServiceInstance = new userService();
+      userServiceInstance.findUserById(
         userId,
         (user) => {
-          res.render('user', {name: user.name, id: user.userID, email: user.username, company: user.company});
+          res.render(
+            'user',
+            {
+              id: user.getId(),
+              name: user.getName(),
+              email: user.getUsername(),
+              company: user.getCompany()
+            }
+          );
         },
         (err) => {
           req.session.error = 2;
@@ -31,32 +40,6 @@
       res.redirect('/');
     }
   });
-
-  function searchForUser(id, successCallbck, errorCallback) {
-      const userDataPath = path.join(__dirname, '/../data', 'login.json');
-      fileStream.readFile(userDataPath, (err, data) => {
-          if (err) errorCallback(err);
-          let users = JSON.parse(data);
-          let isUserExists = false;
-          let existsUser;
-          if (Array.isArray(users)) {
-            for (let counter = 0; counter < users.length; counter++) {
-                let user = users[counter];
-                if (parseInt(user.userID) === id) {
-                    existsUser = user;
-                    isUserExists = true;
-                    break;
-                }
-            }
-          }
-
-         if (isUserExists) {
-           successCallbck(existsUser);
-         } else {
-           errorCallback(new Error('user not found'));
-         }
-      });
-  }
 
   module.exports = router;
 })();
